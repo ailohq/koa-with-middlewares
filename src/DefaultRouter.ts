@@ -13,9 +13,9 @@ export class DefaultRouter extends Router {
       throw new Error(`Test error`);
     });
 
-    this.get("/metrics", (ctx) => {
+    this.get("/metrics", async (ctx) => {
       ctx.type = prometheus.register.contentType;
-      ctx.body = prometheus.register.metrics();
+      ctx.body = await prometheus.register.metrics();
     });
   }
 }
