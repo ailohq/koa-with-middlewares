@@ -5,10 +5,6 @@ export class DefaultRouter extends Router {
   constructor({ prometheus }: { prometheus: PrometheusClient }) {
     super();
 
-    this.get("/ping", (ctx) => {
-      ctx.body = "pong";
-    });
-
     this.get("/error-test", () => {
       throw new Error(`Test error`);
     });

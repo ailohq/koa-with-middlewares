@@ -25,17 +25,6 @@ afterEach(() => {
   _server.close();
 });
 
-describe("GET /ping", () => {
-  it("returns pong", async () => {
-    const { server } = setup({ debug: false });
-    const response = await supertest(server).get("/ping");
-    expect(response).toMatchObject({
-      status: 200,
-      text: "pong",
-    });
-  });
-});
-
 describe("GET /error-test", () => {
   it("returns 500, prints stacktrace, and logs error to the console", async () => {
     const { loggerFactory, server } = setup();
